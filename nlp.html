@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+    <h1>Collection of elements:</h1>
+    <input type = "text" id = "searchBar" oninput = "Search((this.value).toLowerCase())" placeholder = "Search...">
+    <br><br>
+
+    <script>
+    const  questions = ["How do I find the car that I want", "Can I take a test drive", "How do I know if the car I like has mechanical problems"];
+
+    function Search(item){
+            const questions = document.getElementsByClassName("listItem");
+            for (i = 0;i < collection.length; i++){
+                if (((collection[i].innerHTML).toLowerCase()).indexOf(item) > -1) {
+                    collection[i].style.display = "block";
+                    } else {
+                        collection[i].style.display = "none";
+                        }
+            }
+    }
+    </script>
+</body>
+</html>

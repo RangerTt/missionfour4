@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>TurnersCars</title>
+<style>
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.container{
+  width: 100%;
+  min-height: 100vh;
+  padding-left: 8%;
+  padding-right: 8%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.navbar{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.logo{
+  width: 165px;
+  cursor: pointer;
+  margin: 30px 0;
+}
+nav{
+  flex: 1;
+  text-align: right;
+
+}
+nav ul li{
+  list-styles: none;
+  display: inline-block;
+  margin-right:30px;
+}
+nav ul li a{
+  texr-decoration: none;
+  color: #2a6592;
+  font-size: 16px;
+}
+nav ul li a:hover{
+color: #7e9a9a;
+}
+.row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px;
+}
+.collum1{
+  flex-basis: 40%;
+  position: relative;
+margin-left:50px;
+}
+.collum1 h2{
+  font-size: 54px;
+}
+.collum1 h3{
+  font-size: 30px;
+  color: #707070;
+  font-weight: 100;
+  margin: 20px 0 10px;
+}
+button{
+  width: 140px;
+  border: 0;
+  padding:12px 10px;
+  outline: none;
+  color: white;
+  background: linear-gradient(to right,blue ,blue);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: width 0.5s;
+}
+button img{
+  width: 30px;
+  display: none;
+}
+button:hover img{
+display: block;
+}
+button:hover{
+  width: 160px;
+}
+.collum2{
+  position: relative;
+  flex-basis: 60%;
+  display: flex;
+  align-items: center;
+}
+.myInput{
+  height: 40px;
+
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+  <div class="container">
+     <div class="navbar">
+        <img class="logo" src="https://www.suncorp.co.nz/content/dam/suncorp/corporate/suncorp-nz/Images/Newsroom/turners-logo-750x428.jpg">
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="">Chat bot</a></li>
+              <li><a href="">Image recognition</a></li>
+              <li><a href="">NLP</a></li>
+              <li><a href="">About</a></li>
+
+            </ul>
+         </nav>
+      </div>
+      <div class="row">
+        <div class="collum1">
+          <h2>AI custom search </h2>
+          <h3>AI custom search is a brilliant tool used by many big online companys today, it gives users
+          the ability to locate data immediately and efficiently. </h3>
+        </div>
+       <div class="searchbox">
+         <label class="labelsearch" styele="font-size:100px;" for="site-search">Search the site:</label>
+     <input type='search' onkeyup="myFunction()" id="myInput">
+
+     <ul id="myUL">
+  <li><a href="#">How do I find the car that I want?</a></li>
+  <li><a href="#">Can I take a test drive?</a></li>
+
+  <li><a href="#">How do I know if the car I like has mechanical problems?</a></li>
+  <li><a href="quest.html">What other problems could the car have?</a></li>
+
+
+</ul>
+
+       <div id="matchlist"></div>
+
+          </div>
+        </div>
+      </div>
+
+<ul class="list-group" id="list"></ul>
+
+<script>
+function myFunction() {
+
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+
+
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
+</script>
+</body>
+</html>
